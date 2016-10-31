@@ -1,22 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="refresh" content="10"  >
+		<meta http-equiv="refresh" content="2"  >
 	</head>
-	<script type="Text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-	<script type='text/javascript'>
-		$.getJSON("http://0.0.0.0:3000/data",function(d)
-		{
-			var table_data = "<table>"
-			for(i = 0;i<10;i++)
-			{
-				table_data +='<tr>'+'<td>'+d[0][i].Tmp+'</td>'+'</tr>'
-			}
-			table_data += "/table"
-			$('#jtable').append(table_data);
-		});
-		
-	</script>
 	<body>
 		<p><%= h %></p>
 		<table style="width:100%"  border='1'>
@@ -49,7 +35,6 @@
 				</tr>
 			<% }); %>
 		</table>
-		<div id="jtable"></div>
 	</body>
 </html> 
 

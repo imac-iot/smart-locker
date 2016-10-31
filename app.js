@@ -31,7 +31,7 @@ app.get('/', function(req, res)
 		rfid.find().sort({"date": -1}).limit(10).exec(function(err,rfids)
 		{
 			//console.log(rfids);
-			res.render('index',{"h":"hello", "data": datas, "rfid": rfids});
+			res.render('index',{"h":"locker 1", "data": datas, "rfid": rfids});
 		});
 	});
 });

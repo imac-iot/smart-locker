@@ -29,7 +29,7 @@ var Srfid = new Schema
 var data = mongoose.model('data', Sdata);
 var rfid = mongoose.model('rfid', Srfid);
 */
-var client = mqtt.connect('mqtt://10.21.20.84:1883');
+var client = mqtt.connect('mqtt://10.1.1.3:1883');
 
 client.on('connect', function()
 {
