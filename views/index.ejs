@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="refresh" content="10"  >
+	</head>
+	<script type="Text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+	<script type='text/javascript'>
+		$.getJSON("http://0.0.0.0:3000/data",function(d)
+		{
+			var table_data = "<table>"
+			for(i = 0;i<10;i++)
+			{
+				table_data +='<tr>'+'<td>'+d[0][i].Tmp+'</td>'+'</tr>'
+			}
+			table_data += "/table"
+			$('#jtable').append(table_data);
+		});
+		
+	</script>
+	<body>
+		<p><%= h %></p>
+		<table style="width:100%"  border='1'>
+			<tr>
+					<td>溫度</td>
+					<td>紅外線</td>
+					<td>粉塵</td>
+					<td>溼度</td>
+					<td>瓦斯</td>
+				</tr>
+			<% data.forEach(function(d){ %>
+				<tr>
+					<td><%= d.Tmp %></td>
+					<td><%= d.PIR %></td>
+					<td><%= d.Air %></td>
+					<td><%= d.Hum %></td>
+					<td><%= d.Gas %></td>
+				</tr>
+			<% }); %>
+		</table>
+		<table style="width:50%"  border='1'>
+			<tr>
+					<td>RFID</td>
+					<td>time</td>
+				</tr>
+			<% rfid.forEach(function(r){ %>
+				<tr>
+					<td><%= r.RFID %></td>
+					<td><%= r.date %></td>
+				</tr>
+			<% }); %>
+		</table>
+		<div id="jtable"></div>
+	</body>
+</html> 
+
